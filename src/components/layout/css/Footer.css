@@ -1,0 +1,140 @@
+.footer-content{
+    width:calc(100% - 120px);
+    margin: 0 auto;
+    margin-top: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content > nav > ul,
+.footer-content > ul{
+    list-style-type: none;
+    padding: 0;
+    font-family: var(--font-jost);
+    font-size: 20px;
+}
+.footer-content > ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-nav > ul > li:not(:last-child),
+.footer-content > ul > li:not(:last-child){
+    margin-bottom: 30px;
+}
+.footer-logo{
+    margin-top: 30px;
+    height: max-content;
+}
+.footer-logo > img{
+    margin-bottom: 20px;
+}
+.footer-logo:hover{
+    cursor: pointer;
+}
+.footer-nav > ul > .contact-link-conatiner{
+    position: unset;
+}
+.footer-bottom{
+    width: calc(100% - 120px);
+    margin: 0 auto;
+    justify-content: space-between;
+
+    display: flex;
+    align-items: center;
+    border-top: 1px solid black;
+    padding-top: 30px;
+    padding-bottom: 90px;
+}
+.footer-bottom > a{
+    font-family: var(--font-jost);
+    font-size: 20px;
+    color: #212529;
+    opacity: .5;
+    text-decoration: none;
+}
+.footer-bottom > a:hover{
+    opacity: 1;
+}
+.footer-contact-link{
+    position: unset;
+}
+.f-placeholder{
+    width: 60px;
+}
+
+
+.f-b-ru > a{
+    margin-left: 95px;
+}
+.f-b-en > a{
+    margin-left: -15px;
+}
+
+@media  screen and (max-width:480px) {
+    .mobile-footer{
+        width: calc(100% - 40px);
+        margin: 0 auto 30px auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        position: relative;
+        background-color: #fff;
+        z-index: 10;
+    }
+
+    .mobile-footer > .mobile-menu-content-top > ul,
+    .mobile-footer > .mobile-menu-content-bottom > ul{
+        padding: 0;
+        margin-right: 0;
+    }
+
+    .mobile-footer > .mobile-menu-content-top{
+        margin-bottom: 26px;
+    }
+    
+    .mobile-footer > .mobile-menu-content-bottom{
+        margin-bottom: 3px;
+    }
+
+
+    .mobile-footer > .mobile-menu-content-top > .contact-link-conatiner{
+        right: 0;
+    }
+
+    .footer-logo{
+        position: absolute;
+        right: 0;
+        top: 15px;
+
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .footer-logo > img{
+        width: 40px;
+        margin-bottom: 10px;
+    }
+    .footer-logo >.logo-labels > span{
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .mobile-menu-content-bottom > ul > .contact-link-conatiner{
+        right:0;
+        bottom:0;
+    }
+    .footer-bottom{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 10px;
+        gap:40px;
+        padding-bottom: 0;
+    }
+}

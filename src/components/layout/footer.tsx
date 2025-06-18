@@ -2,25 +2,34 @@
 
 import './css/Footer.css'
 import logo from '@/assets/design/logo.svg'
+import Image from 'next/image';
 import { vkLink, waLink, inLink, tgLink, phoneRef, phoneLabel, gmail } from '@/lib/constants/constants';
 import LanguageSwitcher from '@/components/buttons/languageSwitcher';
 import NavLink from '@/components/routing/NavLink';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
-import { useMediaQuery } from 'usehooks-ts'
 import { PopupInitBtn } from '@/components/popup/popup';
+import { useEffect, useState } from 'react';
 
 function Footer() {
     const { t, i18n } = useTranslation();
     const router = useRouter();
-    const mobile = useMediaQuery('(max-width: 480px)')
+    const [mobile, setMobile] = useState<boolean>(false)
+
+    useEffect(()=>{
+        setMobile(window.matchMedia('(max-width: 480px)').matches);
+    },[])
+
+    const handleScrollTop = () => {
+        if (typeof window !== 'undefined') window.scrollTo(0, 0);
+    };
 
     if(mobile){
         return(
             <footer className="mobile-footer">
                 <div className="mobile-menu-content-top">
                     <div className="footer-logo" onClick={() => router.push('/')}>
-                        <img src={logo} alt="" />
+                        <Image src={logo} width={40} height={40} alt="" />
                         <div className="logo-labels">
                             <span>interior</span>
                             <span>design</span>
@@ -48,18 +57,18 @@ function Footer() {
                 <div className="mobile-menu-content-bottom">
                     <ul>
                         <li>
-                            <a href={`tel:${phoneRef}`}>{phoneLabel}</a>
+                            <a target="_blank" href={`tel:${phoneRef}`}>{phoneLabel}</a>
                         </li>
                         <li>
-                            <a href={`mailto:${gmail}`}>{gmail}</a>
+                            <a target="_blank" href={`mailto:${gmail}`}>{gmail}</a>
                         </li>
                     </ul>
                     <ul className='m-last-list'>
                         <li>
-                            <a href={tgLink}>telegram</a>
+                            <a target="_blank" href={tgLink}>telegram</a>
                         </li>
                         <li>
-                            <a href={inLink}>{t('contacts-inst')}</a>
+                            <a target="_blank" href={inLink}>{t('contacts-inst')}</a>
                         </li>
                     </ul>
                 </div>
@@ -79,22 +88,22 @@ function Footer() {
                 <nav className="footer-nav">
                     <ul>
                         <li>
-                            <NavLink onClick={ () => window.scrollTo(0,0) } href='/' basicClassName='header-nav-a'>
+                            <NavLink onClick={handleScrollTop} href='/' basicClassName='header-nav-a'>
                                 {t("home")}
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={ () => window.scrollTo(0,0) } href='/about' basicClassName='header-nav-a'>
+                            <NavLink onClick={handleScrollTop} href='/about' basicClassName='header-nav-a'>
                                 {t("about")}
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={ () => window.scrollTo(0,0) } href='/projects' basicClassName='header-nav-a'>
+                            <NavLink onClick={handleScrollTop} href='/projects' basicClassName='header-nav-a'>
                                 {t("projects")}
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={ () => window.scrollTo(0,0)} href='/contacts' basicClassName='header-nav-a'>
+                            <NavLink onClick={handleScrollTop} href='/contacts' basicClassName='header-nav-a'>
                                 {t("contacts")}
                             </NavLink>
                         </li>
@@ -103,21 +112,21 @@ function Footer() {
 
                 <ul>
                     <li>
-                        <a href={vkLink} className='header-nav-a'>vk.com</a>
+                        <a target="_blank" href={vkLink} className='header-nav-a'>vk.com</a>
                     </li>
                     <li>
-                        <a href={waLink} className='header-nav-a'>whatsapp</a>
+                        <a target="_blank" href={waLink} className='header-nav-a'>whatsapp</a>
                     </li>
                     <li>
-                        <a href={tgLink} className='header-nav-a'>telegram</a>
+                        <a target="_blank" href={tgLink} className='header-nav-a'>telegram</a>
                     </li>
                     <li>
-                        <a href={inLink} className='header-nav-a'>{t("contacts-inst")}</a>
+                        <a target="_blank" href={inLink} className='header-nav-a'>{t("contacts-inst")}</a>
                     </li>
                 </ul>
 
                 <div className="footer-logo"  onClick={() => router.push('/')}>
-                    <img src={logo} alt="" style={{width:'100%'}}/>
+                    <Image className='' src={logo} width={40} height={40} alt="" />
                     <div className="logo-labels">
                         <span>interior</span>
                         <span>design</span>
@@ -126,7 +135,7 @@ function Footer() {
                 </div>
             </div>
             <div className={i18n.language === 'ru'? "footer-bottom f-b-ru" :"footer-bottom f-b-en"}>
-                <div className="contact-NavLink-conatiner footer-contact-NavLink">
+                <div className="contact-link-conatiner footer-contact-link">
                     <PopupInitBtn/>
                 </div>
                 <NavLink href='/terms'>

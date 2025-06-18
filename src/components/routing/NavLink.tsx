@@ -7,21 +7,25 @@ import { ReactNode } from 'react'
 interface NavLinkProps {
     href: string,
     onClick?: (e:any) => void,
-    basicClassName?: string,
-    activeClassName?: string,
+    basicClassName?: string | undefined,
     children: ReactNode
 }
 
-export default function NavLink({ href, onClick, basicClassName='', activeClassName='', children }: NavLinkProps) {
+export default function NavLink(Props: NavLinkProps) {
+    const { href, onClick, basicClassName=undefined, children } = Props; 
     const pathname = usePathname()
     const isActive = pathname === href
-    var className =`${basicClassName}`
 
-    if(basicClassName || activeClassName)
-        className = className + isActive ? `${activeClassName}` : ''
-    
+    let class_name = ''
+    if (basicClassName) {
+        class_name = basicClassName
+        if (isActive) {
+            class_name += ` active`
+        }
+    }
+
     return (
-        <Link onClick={onClick} href={href} className={className}>
+        <Link onClick={onClick} href={href} className={class_name}>
             {children}
         </Link>
     )

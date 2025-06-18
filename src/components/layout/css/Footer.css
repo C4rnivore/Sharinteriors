@@ -31,6 +31,8 @@
 }
 .footer-logo > img{
     margin-bottom: 20px;
+    width: 100%;
+    height: auto;
 }
 .footer-logo:hover{
     cursor: pointer;
@@ -60,7 +62,7 @@
     opacity: 1;
 }
 .footer-contact-link{
-    position: unset;
+    position: static !important;
 }
 .f-placeholder{
     width: 60px;
@@ -119,6 +121,7 @@
 
     .footer-logo > img{
         width: 40px;
+        height: auto;
         margin-bottom: 10px;
     }
     .footer-logo >.logo-labels > span{

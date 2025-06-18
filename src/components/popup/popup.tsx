@@ -11,6 +11,7 @@ import contactIcon from '@/assets/design/Arrow 47.svg'
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 import NavLink  from '@/components/routing/NavLink' 
+import Image from 'next/image';
 
 function Popup() {
     const { t } = useTranslation();
@@ -155,7 +156,8 @@ export const PopupInitBtn = () =>{
         <div onClick={initPopup} className={'popup-initer'}>
             <span>{t("contact-us")}</span>
             <div className='contact-icon-wrapper'>
-                <img src={contactIcon} alt="" />
+                <Image src={contactIcon} width={19} height={19} alt=''/>
+                {/* <img src={contactIcon} alt="" /> */}
             </div>
         </div>
     )

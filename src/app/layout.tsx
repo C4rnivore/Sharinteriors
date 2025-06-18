@@ -5,6 +5,11 @@ import Popup from '@/components/popup/popup'
 import { Toaster } from 'react-hot-toast'
 import { Metadata } from 'next'
 import { ReactNode } from 'react'
+import { Jost } from 'next/font/google'
+
+const jost = Jost({
+  subsets: ['latin', 'cyrillic'],
+})
 
 export const metadata: Metadata = {
   title: 'Sharinterior',
@@ -13,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }:{children: ReactNode}) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={jost.className}>
       <body>
         {children}
         <Footer />

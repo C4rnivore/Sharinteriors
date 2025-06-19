@@ -9,16 +9,12 @@ import NavLink from '@/components/routing/NavLink';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { PopupInitBtn } from '@/components/popup/popup';
-import { useEffect, useState } from 'react';
+import useMaxWidth from '@/lib/hooks/useMobile';
 
 function Footer() {
     const { t, i18n } = useTranslation();
     const router = useRouter();
-    const [mobile, setMobile] = useState<boolean>(false)
-
-    useEffect(()=>{
-        setMobile(window.matchMedia('(max-width: 480px)').matches);
-    },[])
+    const mobile = useMaxWidth(480)
 
     const handleScrollTop = () => {
         if (typeof window !== 'undefined') window.scrollTo(0, 0);

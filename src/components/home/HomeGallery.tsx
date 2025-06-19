@@ -11,7 +11,7 @@ import g6 from '@/assets/gallery/6.webp'
 import { useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
-import { useMediaQuery } from 'usehooks-ts'
+import useMaxWidth from '@/lib/hooks/useMobile'
 import AliceCarousel from 'react-alice-carousel'
 import Image from 'next/image'
 
@@ -23,7 +23,7 @@ function HomeGallery(props: { extraPadding:boolean }) {
     const privateLabel = useRef<HTMLDivElement | null>(null);
     const { t } = useTranslation();
     const router = useRouter();
-    const mobile = useMediaQuery('(max-width: 480px)');
+    const mobile = useMaxWidth(480)
     const [activeType, setActiveType] = useState('private') 
 
     const MobileGalleryImage = (image: { src: string }, path:string, localeKey:string) => {

@@ -13,7 +13,7 @@ import Sketch from '@/lib/three_distortion/Distortion'
 import  NavLink  from '@/components/routing/NavLink'
 import { toggleBodyScrollable } from '@/lib/utils'
 import { useTranslation } from 'react-i18next'
-import { useMediaQuery } from 'usehooks-ts'
+import useMaxWidth from '@/lib/hooks/useMobile'
 import { useRef, useState } from 'react'
 import { useEffect } from 'react'
 import { inLink, tgLink, phoneRef, phoneLabel, gmail } from '@/lib/constants/constants';
@@ -23,7 +23,7 @@ function HomeMain(){
     const subtitleRef = useRef(null)
     const [ loading, setLoading ] = useState(true)
     const { t } = useTranslation();
-    const mobile = useMediaQuery('(max-width: 480px)')
+    const mobile = useMaxWidth(480)
 
     useEffect(() => {
         if(!mobile){

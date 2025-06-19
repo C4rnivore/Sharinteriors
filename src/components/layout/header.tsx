@@ -13,6 +13,7 @@ import translationRU from '@/locales/ru/translation.json'
 import shar from '@/assets/design/mobile/Vector.svg'
 import NavLink from '@/components/routing/NavLink'
 import logo from '@/assets/design/logo.svg'
+import Image from 'next/image'
 import i18n from "i18next"
 
 const resources = {
@@ -103,7 +104,7 @@ function Header(){
 
                 <LanguageSwitcher/>
                 <div className="header-logo" onClick={handleLogoClick}>
-                    <img src={logo} alt="" />
+                    <Image src={logo} alt='' width={60} height={60}/>
                     <div className="logo-labels">
                         <span>interior</span>
                         <span>design</span>
@@ -146,7 +147,7 @@ function Header(){
                             </li>
                         </ul>
                     </div>
-                    <img src={shar} alt="" className="shar-menu-texture" />
+                    <Image src={shar} alt='' width={60} height={60} className="shar-menu-texture"/>
                 </div>
             </div>
         </div>

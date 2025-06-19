@@ -14,8 +14,7 @@ import  NavLink  from '@/components/routing/NavLink'
 import { toggleBodyScrollable } from '@/lib/utils'
 import { useTranslation } from 'react-i18next'
 import useMaxWidth from '@/lib/hooks/useMobile'
-import { useRef, useState } from 'react'
-import { useEffect } from 'react'
+import { useRef, useState, useEffect  } from 'react'
 import { inLink, tgLink, phoneRef, phoneLabel, gmail } from '@/lib/constants/constants';
 
 function HomeMain(){
@@ -31,10 +30,22 @@ function HomeMain(){
                 dom: document.getElementById("homeCanvas")
             });
         }
+        else{
+            clearCanvas()
+        }
+
         setTimeout(() => {
             setLoading(false)
         },1000)
+
     }, [mobile]);
+
+
+    const clearCanvas = () => {
+        document.querySelectorAll('canvas[data-engine^="three.js"]').forEach(canvas => {
+            canvas.remove();
+        });
+    }
 
     if(!mobile){
         return(

@@ -69,7 +69,7 @@ function Footer() {
                     </ul>
                 </div>
                 <div className="footer-bottom">
-                    <div className="contact-NavLink-conatiner footer-contact-NavLink">
+                    <div className="contact-link-conatiner footer-contact-link">
                         <PopupInitBtn/>
                     </div>
                     <NavLink href='/terms'>{t("terms")}</NavLink>

@@ -140,4 +140,10 @@
         gap:40px;
         padding-bottom: 0;
     }
+
+     .popup-initer{
+        display: flex;
+        align-items: center;
+        gap:20px;
+    }
 }

@@ -194,13 +194,14 @@
     
 }
 
-
-
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     .home-content{
         border-radius: 20px 0 0 20px;
         width: 43%;
         padding-inline: 0;
+    }
+    .home-content > canvas{
+        display: none !important;
     }
     #Home{
         height: 40vh;
@@ -289,6 +290,7 @@
         gap:10px;
         padding-left: 20px;
     }
+
     .mobile-menu-nav > li > a{
         text-decoration: none;
         color: black;

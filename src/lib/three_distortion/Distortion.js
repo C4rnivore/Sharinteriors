@@ -64,34 +64,23 @@ export default class Sketch {
     this.resize();
     this.render();
     this.setupResize();
-
     this.mouseEvents()
-
   }
 
   getValue(val){
     return parseFloat(this.container.getAttribute('data-'+val))
   }
 
-
   mouseEvents() {
     window.addEventListener('mousemove', (e) => {
       this.mouse.x = e.clientX / this.width;
       this.mouse.y = e.clientY / (this.height - window.scrollY);
-
-      // console.log(window.scrollY, this.height);
-      // if(window.scrollY > threshold){
-        
-      //   return
-      // }
 
       this.mouse.vX = this.mouse.x - this.mouse.prevX;
       this.mouse.vY = this.mouse.y - this.mouse.prevY;
 
       this.mouse.prevX = this.mouse.x
       this.mouse.prevY = this.mouse.y;
-
-      //console.log(this.mouse.vX,'vx')
     })
   }
 

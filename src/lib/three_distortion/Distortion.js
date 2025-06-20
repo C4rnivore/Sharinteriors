@@ -86,7 +86,6 @@ export default class Sketch {
 
   // настройки 
   settings() {
-    let that = this;
     this.settings = {
       grid: this.getValue('grid')||34,
       mouse: this.getValue('mouse')||0.25,

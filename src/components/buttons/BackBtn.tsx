@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
 import "./styles/BackBtn.css";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
@@ -50,7 +51,7 @@ function BackBtn(props: {
                 {t(path)}{" "}
               </span>
               <img
-                src={"/img/icons/arrowBack.svg"}
+                src={"/img/icons/arrowBack.png"}
                 alt=""
                 style={{ paddingInline: 25, height: 15, marginTop: 2.5 }}
               />

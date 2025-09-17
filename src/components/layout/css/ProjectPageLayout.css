@@ -76,11 +76,16 @@
     .project-page-layout{
         padding-top: 180px;
         padding-inline: 4.167vw;
+        padding-bottom: 10.417vw;
         width: calc(100% - 8.333vw);
     }
 
     .project-page-layout__hero{
         gap: 10.417vw;
+    }
+
+    .project-page-layout__description-text.first-text{
+        margin-top: 10.417vw;
     }
 
     .project-page-layout__title-container{

@@ -1,9 +1,10 @@
+"use client";
 import BackBtn from "@/components/buttons/BackBtn";
 import React from "react";
 import ProjectsGrid from "@/components/routing/ProjectsGrid";
-import { projectsData } from "@/app/projectsData";
+import { projectsData } from "@/app/appData";
 
-export default function page() {
+export default function PublicProjects() {
   return (
     <section className="grid-container">
       <BackBtn

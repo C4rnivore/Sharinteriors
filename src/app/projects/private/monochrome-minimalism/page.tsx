@@ -10,34 +10,34 @@ export default function Page() {
   const { t } = useTranslation();
   const mobile = useMaxWidth(480);
   const images = [
-    "/img/projects/georgean-character/hero.png",
-    "/img/projects/georgean-character/1.png",
-    "/img/projects/georgean-character/2.png",
-    "/img/projects/georgean-character/3.png",
-    "/img/projects/georgean-character/4.png",
-    "/img/projects/georgean-character/5.png",
-    "/img/projects/georgean-character/6.png",
-    "/img/projects/georgean-character/7.png",
-    "/img/projects/georgean-character/8.png",
-    "/img/projects/georgean-character/9.png",
+    "/img/projects/monochrome-minimalism/hero.png",
+    "/img/projects/monochrome-minimalism/1.png",
+    "/img/projects/monochrome-minimalism/2.png",
+    "/img/projects/monochrome-minimalism/3.png",
+    "/img/projects/monochrome-minimalism/4.png",
+    "/img/projects/monochrome-minimalism/5.png",
+    "/img/projects/monochrome-minimalism/6.png",
+    "/img/projects/monochrome-minimalism/7.png",
+    "/img/projects/monochrome-minimalism/8.png",
+    "/img/projects/monochrome-minimalism/9.png",
   ];
   const [activeImage, setActiveImage] = useState<number | null>(null);
 
   return (
     <ProjectPageLayout
-      title={t("Georgian character")}
-      city={t("Tbilisi")}
-      year={"2022"}
+      title={t("Monochrome minimalism")}
+      city={t("Moscow")}
+      year={"2021"}
       description={[
-        t("georgia-description-text"),
-        t("georgia-description-text-extra"),
+        t("monochrome-description-1"),
+        t("monochrome-description-2"),
       ]}
       images={images}
       activeImage={activeImage}
       setActiveImage={() => setActiveImage(null)}
       type={"private"}
     >
-      <ProjectPageRow>
+      <ProjectPageRow style={{ gap: mobile ? "2.5vw" : "none" }}>
         <div className="project-page-layout__row-left">
           <img
             className="project-page-layout__img"
@@ -46,49 +46,46 @@ export default function Page() {
             onClick={() => setActiveImage(1)}
           />
         </div>
-        <div className="project-page-layout__row-right"></div>
+        <div className="project-page-layout__row-right">
+          <div
+            className="project-page-layout__double"
+            style={{ flexDirection: "row-reverse" }}
+          >
+            <img
+              className="project-page-layout__img"
+              src={images[2]}
+              alt=""
+              style={{ transform: !mobile ? "translateY(17.448vw)" : "none" }}
+              onClick={() => setActiveImage(2)}
+            />
+          </div>
+        </div>
       </ProjectPageRow>
 
       <ProjectPageRow
         style={{
-          alignItems: "start",
           marginTop: mobile ? "2.5vw" : "2.604vw",
-          gap: mobile ? "10.417vw" : "none",
+          gap: mobile ? "2.5vw" : "none",
         }}
       >
         <div className="project-page-layout__row-left">
           <img
             className="project-page-layout__img"
-            src={images[2]}
+            src={images[3]}
             alt=""
-            onClick={() => setActiveImage(2)}
+            onClick={() => setActiveImage(3)}
           />
         </div>
         <div className="project-page-layout__row-right">
-          <p
-            className="project-page-layout__text"
-            style={{ marginBottom: !mobile ? "6.25vw" : "10.417vw" }}
-          >
-            {t("georgia-description-text-2")}
-            <br />
-            <br />
-            {t("georgia-description-text-2-extra")}
-          </p>
           <div
             className="project-page-layout__double"
-            style={{ marginBottom: mobile ? "56.5vw" : "0vw" }}
+            style={{ flexDirection: !mobile ? "row-reverse" : "row" }}
           >
-            <img
-              className="project-page-layout__img"
-              src={images[3]}
-              alt=""
-              onClick={() => setActiveImage(3)}
-            />
             <img
               className="project-page-layout__img"
               src={images[4]}
-              style={{ transform: mobile ? "translateY(56.5vw)" : "none" }}
               alt=""
+              style={{ transform: !mobile ? "translateY(15.904vw)" : "none" }}
               onClick={() => setActiveImage(4)}
             />
           </div>
@@ -97,8 +94,8 @@ export default function Page() {
 
       <ProjectPageRow
         style={{
-          marginTop: mobile ? "2.5vw" : "5.208vw",
-          gap: mobile ? "2.083vw" : "none",
+          marginTop: mobile ? "2.5vw" : "32.708vw",
+          gap: mobile ? "2.5vw" : "none",
         }}
       >
         <div className="project-page-layout__row-left">
@@ -110,21 +107,28 @@ export default function Page() {
           />
         </div>
         <div className="project-page-layout__row-right">
-          <div className="project-page-layout__double">
+          <div
+            className="project-page-layout__double"
+            style={{ flexDirection: "row-reverse" }}
+          >
             <img
               className="project-page-layout__img"
               src={images[6]}
               alt=""
-              style={{ marginTop: mobile ? "0vw" : "15.625vw" }}
+              style={{ transform: !mobile ? "translateY(-12vw)" : "none" }}
               onClick={() => setActiveImage(6)}
             />
           </div>
         </div>
       </ProjectPageRow>
 
-      <ProjectPageRow style={{ marginTop: mobile ? "2.5vw" : "2.604vw" }}>
-        <div className="project-page-layout__row-left"></div>
-        <div className="project-page-layout__row-right">
+      <ProjectPageRow
+        style={{
+          marginTop: mobile ? "2.5vw" : "5.208vw",
+          gap: mobile ? "2.5vw" : "none",
+        }}
+      >
+        <div className="project-page-layout__row-left">
           <div
             className="project-page-layout__double"
             style={{ flexDirection: "row-reverse" }}
@@ -137,27 +141,14 @@ export default function Page() {
             />
           </div>
         </div>
-      </ProjectPageRow>
-
-      <ProjectPageRow
-        style={{
-          marginTop: mobile ? "2.5vw" : "2.604vw",
-          gap: mobile ? "2.083vw" : "none",
-        }}
-      >
-        <div className="project-page-layout__row-left">
-          <img
-            className="project-page-layout__img"
-            src={images[8]}
-            alt=""
-            onClick={() => setActiveImage(8)}
-          />
-        </div>
         <div className="project-page-layout__row-right">
-          <div
-            className="project-page-layout__double"
-            style={{ flexDirection: mobile ? "column" : "row-reverse" }}
-          >
+          <div className="project-page-layout__double">
+            <img
+              className="project-page-layout__img"
+              src={images[8]}
+              alt=""
+              onClick={() => setActiveImage(8)}
+            />
             <img
               className="project-page-layout__img"
               src={images[9]}

@@ -28,15 +28,10 @@ export default function ProjectPageLayout({
   type,
 }: ProjectPageLayoutProps) {
   const [sliderStartIndex, setSliderStartIndex] = useState(activeImage);
-
   useEffect(() => {
     if (!activeImage) return;
     setSliderStartIndex(activeImage);
   }, [activeImage]);
-
-  useEffect(() => {
-    console.log(sliderStartIndex);
-  }, [sliderStartIndex]);
 
   return (
     <section className="project-page-layout">
@@ -53,7 +48,12 @@ export default function ProjectPageLayout({
             <span className="project-page-layout__year"> {year} </span>
           </div>
           {description.map((text, index) => (
-            <p className="project-page-layout__description-text" key={index}>
+            <p
+              className={`project-page-layout__description-text ${
+                index === 0 ? "first-text" : ""
+              }`}
+              key={index}
+            >
               {text}
             </p>
           ))}

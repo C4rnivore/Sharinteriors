@@ -4,6 +4,7 @@ import "./styles/BackBtn.css";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "usehooks-ts";
+import { useEffect, useState } from "react";
 
 function BackBtn(props: {
   destination: string;
@@ -11,21 +12,20 @@ function BackBtn(props: {
   desktopRoute: string[];
 }) {
   const mobile = useMediaQuery("(max-width: 480px)");
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleBackBtn = () => {
     router.push(props.destination);
   };
 
-  if (mobile) {
-    return (
-      <div className="back-btn-container" onClick={handleBackBtn}>
-        <img src="/img/icons/arrowBack_mobile.svg" alt="" />
-        <span>{t(props.title)}</span>
-      </div>
-    );
-  } else {
+  // Render desktop version during SSR and until client hydrates
+  if (!isClient || !mobile) {
     return (
       <div className="back-btn-container">
         {props.desktopRoute?.map((path: string, index: number) =>
@@ -58,6 +58,13 @@ function BackBtn(props: {
             </div>
           )
         )}
+      </div>
+    );
+  } else {
+    return (
+      <div className="back-btn-container" onClick={handleBackBtn}>
+        <img src="/img/icons/arrowBack_mobile.svg" alt="" />
+        <span>{t(props.title)}</span>
       </div>
     );
   }

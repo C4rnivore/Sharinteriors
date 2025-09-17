@@ -20,19 +20,18 @@ export const projectsData = {
         {
           title: "Monochrome minimalism",
           image: "/img/projects/MonochromeMinimalismHero.png",
-          path: "/projects/private/monochrome",
+          path: "/projects/private/monochrome-minimalism",
         },
         {
-          title: "Apartment in the center of Europe",
+          title: "Apartament in the center of Europe",
           image: "/img/projects/PolandHero.png",
-          path: "/projects/private/appartament-in-the-center-of-europe",
+          path: "/projects/private/apartament-in-the-center-of-europe",
         },
         {
           title: "Contemporary comfort",
           image: "/img/projects/ContemporaryComfortHero.png",
           path: "/projects/private/contemporary-comfort",
         },
-        
     ],
     public:[
         {

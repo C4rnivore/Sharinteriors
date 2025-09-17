@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import useMaxWidth from "@/lib/hooks/useMobile";
 import { useRef, useState } from "react";
 import { Div } from "@/lib/types/types";
-import { projectsData } from "@/app/projectsData";
+import { projectsData } from "@/app/appData";
 
 function GalleryBottom() {
   const router = useRouter();

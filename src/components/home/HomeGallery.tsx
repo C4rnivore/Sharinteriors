@@ -9,6 +9,7 @@ import useMaxWidth from "@/lib/hooks/useMobile";
 import AliceCarousel from "react-alice-carousel";
 import Image from "next/image";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { projectsData } from "@/app/appData";
 
 function HomeGallery(props: { extraPadding: boolean }) {
   const [prevPos, setPrevPos] = useState("1");
@@ -37,65 +38,41 @@ function HomeGallery(props: { extraPadding: boolean }) {
     );
   };
 
-  const imagesPrivate =
+  const mobileImages =
     activeType === "private"
       ? [
           MobileGalleryImage(
-            "/img/projects/WhiteAppartamentsHero.png",
-            "/projects/private/white-appartaments",
-            "White Apartament"
+            projectsData.private[0].image,
+            projectsData.private[0].path,
+            projectsData.private[0].title
           ),
           MobileGalleryImage(
-            "/img/projects/FusionInZamoskvorechyeHero.png",
-            "/projects/private/fusion",
-            "Fusion in Zamoskvorechye"
+            projectsData.private[1].image,
+            projectsData.private[1].path,
+            projectsData.private[1].title
           ),
           MobileGalleryImage(
-            "/img/projects/LoftInGeorgiaHero.png",
-            "/projects/private/georgian-character",
-            "Georgian character"
+            projectsData.private[2].image,
+            projectsData.private[2].path,
+            projectsData.private[2].title
           ),
           MobileGalleryImage(
-            "/img/projects/MonochromeMinimalismHero.png",
-            "/projects/private/monochrome",
-            "Monochrome minimalism"
+            projectsData.private[3].image,
+            projectsData.private[3].path,
+            projectsData.private[3].title
           ),
-          // <div className="mobile-gallery-img" >
-          //     <img src={g1.src} className='mobile-gallery-img' alt="" onClick={()=>router.push('/projects/private/white-appartaments')}/>
-          //     <span className='mobile-gallery-span'>{t("White Apartament")}</span>
-          // </div>,
-          // <div className="mobile-gallery-img">
-          //     <img src={g2.src} className='mobile-gallery-img' alt="" onClick={()=>router.push('/projects/private/fusion')}/>
-          //     <span className='mobile-gallery-span'>{t("Fusion in Zamoskvorechye")}</span>
-          // </div>,
-          // <div className="mobile-gallery-img">
-          //     <img src={g3.src} className='mobile-gallery-img' alt="" onClick={()=>router.push('/projects/private/georgian-character')}/>
-          //     <span className='mobile-gallery-span'>{t("Georgian character")}</span>
-          // </div>,
-          // <div className="mobile-gallery-img">
-          //     <img src={g4.src} className='mobile-gallery-img' alt="" onClick={()=>router.push('/projects/private/monochrome')}/>
-          //     <span className='mobile-gallery-span'>{t("Monochrome minimalism")}</span>
-          // </div>
         ]
       : [
           MobileGalleryImage(
-            "/img/projects/VintageCoffeeShopHero.png",
-            "/projects/public/coffee-shop",
-            "Vintage Coffee Shop"
+            projectsData.public[0].image,
+            projectsData.public[0].path,
+            projectsData.public[0].title
           ),
           MobileGalleryImage(
-            "/img/projects/HighTechOfficeHero.png",
-            "/projects/public/hightech",
-            "High-tech office"
+            projectsData.public[1].image,
+            projectsData.public[1].path,
+            projectsData.public[1].title
           ),
-          // <div className="mobile-gallery-img">
-          //     <img src={g6.src} className='mobile-gallery-img' alt="" onClick={()=>router.push('/projects/public/coffee-shop')}/>
-          //     <span className='mobile-gallery-span'>{t("Vintage Coffee Shop")}</span>
-          // </div>,
-          // <div className="mobile-gallery-img">
-          //     <img src={g5.src} className='mobile-gallery-img' alt="" onClick={()=>router.push('/projects/public/hightech')}/>
-          //     <span className='mobile-gallery-span'>{t("High-tech office")}</span>
-          // </div>
         ];
 
   const handleGalleryMouseOver = (pos: string) => {
@@ -156,64 +133,44 @@ function HomeGallery(props: { extraPadding: boolean }) {
         }
       >
         <div className="gallery-wrapper">
-          <div
-            id="1"
-            className="gallery-item g-private gallery-active g-first g-green"
-            style={{
-              backgroundImage: `url('/img/projects/WhiteAppartamentsHero.png')`,
-            }}
-            onMouseOver={() => handleGalleryMouseOver("1")}
-            onClick={() => router.push("/projects/private/white-appartaments")}
-          >
-            <span className="gallery-span" onClick={(e) => e.preventDefault()}>
-              {t("White Apartament")}
-            </span>
-            <span
-              data-url="/private"
-              id="g-private-label"
-              className="gallery-label"
-            >
-              {t("private")}
-            </span>
-          </div>
-
-          <div
-            id="2"
-            className="gallery-item g-private g-green"
-            style={{
-              backgroundImage: `url('/img/projects/FusionInZamoskvorechyeHero.png')`,
-            }}
-            onMouseOver={() => handleGalleryMouseOver("2")}
-            onClick={() => router?.push("/projects/private/fusion")}
-          >
-            <span className="gallery-span">
-              {t("Fusion in Zamoskvorechye")}
-            </span>
-          </div>
-
-          <div
-            id="3"
-            className="gallery-item g-private g-green"
-            style={{
-              backgroundImage: `url('/img/projects/LoftInGeorgiaHero.png')`,
-            }}
-            onMouseOver={() => handleGalleryMouseOver("3")}
-            onClick={() => router?.push("/projects/private/georgian-character")}
-          >
-            <span className="gallery-span">{t("Georgian character")}</span>
-          </div>
-
-          <div
-            id="4"
-            className="gallery-item g-private g-last g-green"
-            style={{
-              backgroundImage: `url('/img/projects/MonochromeMinimalismHero.png')`,
-            }}
-            onMouseOver={() => handleGalleryMouseOver("4")}
-            onClick={() => router?.push("/projects/private/monochrome")}
-          >
-            <span className="gallery-span">{t("Monochrome minimalism")}</span>
-          </div>
+          {projectsData.private
+            .slice(0, projectsData.privateCount)
+            .map((project, index) => {
+              const className =
+                index === 0
+                  ? "gallery-item g-private gallery-active g-first g-green"
+                  : index === projectsData.privateCount - 1
+                  ? "gallery-item g-private g-last g-green"
+                  : "gallery-item g-private g-green";
+              return (
+                <div
+                  key={index}
+                  id={`${index + 1}`}
+                  className={className}
+                  style={{
+                    backgroundImage: `url(${project.image})`,
+                  }}
+                  onMouseOver={() => handleGalleryMouseOver(`${index + 1}`)}
+                  onClick={() => router.push(project.path)}
+                >
+                  <span
+                    className="gallery-span"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    {t(project.title)}
+                  </span>
+                  {index === 0 && (
+                    <span
+                      data-url="/private"
+                      id="g-private-label"
+                      className="gallery-label"
+                    >
+                      {t("private")}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
 
           <div
             id="5"
@@ -222,7 +179,7 @@ function HomeGallery(props: { extraPadding: boolean }) {
               backgroundImage: `url('/img/projects/HighTechOfficeHero.png')`,
             }}
             onMouseOver={() => handleGalleryMouseOver("5")}
-            onClick={() => router?.push("/projects/public/hightech")}
+            onClick={() => router?.push("/projects/public/high-tech-office")}
           >
             <span className="gallery-span">{t("High-tech office")}</span>
             <span data-url="/public" className="gallery-label">
@@ -278,7 +235,7 @@ function HomeGallery(props: { extraPadding: boolean }) {
             mouseTracking
             disableDotsControls={true}
             disableButtonsControls={true}
-            items={imagesPrivate}
+            items={mobileImages}
           />
         </div>
       </div>

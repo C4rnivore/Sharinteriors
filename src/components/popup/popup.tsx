@@ -8,6 +8,7 @@ import {
   mailTo,
 } from "@/lib/constants/constants";
 import { useTranslation } from "react-i18next";
+import "@/lib/i18n"; // Initialize i18n
 import { useMask } from "@react-input/mask";
 import { FormEvent, useState } from "react";
 import { Div } from "@/lib/types/types";

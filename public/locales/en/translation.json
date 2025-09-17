@@ -81,6 +81,7 @@
     "server-error":"Sorry, we can't submit your form yet. Try later.",
 
     "terms":"Terms and conditions",
+    
     "404-msg":"oops, the page you are looking doesn’t exist",
     "404-anchor":"go back to main"
 }

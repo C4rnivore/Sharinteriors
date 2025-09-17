@@ -1,7 +1,10 @@
-// Данные о проектах
+// Данные о проектах. Изменение порядка изменит проекты в галерее.
+
 
 export const projectsData = {
-    private: [
+    // Первые 4 проекта пойдут в галерею на главной
+    privateCount: 4,
+    private: [ 
         {
           title: "Fusion in Zamoskvorechye",
           image: "/img/projects/FusionInZamoskvorechyeHero.png",
@@ -37,7 +40,7 @@ export const projectsData = {
         {
           title: "High-tech office",
           image: "/img/projects/HighTechOfficeHero.png",
-          path: "/projects/public/hightech",
+          path: "/projects/public/high-tech-office",
         },
         {
           title: "Vintage Coffee Shop",

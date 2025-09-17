@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import "@/lib/i18n"; // Initialize i18n
 
 function LanguageSwitcher() {
   const { i18n } = useTranslation();

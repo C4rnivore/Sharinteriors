@@ -10,54 +10,16 @@ import {
   tgLink,
 } from "@/lib/constants/constants";
 import { toggleBodyScrollable, enableBodyScroll } from "@/lib/utils";
-import { useTranslation, initReactI18next } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { usePathname, useRouter } from "next/navigation";
+import "@/lib/i18n"; // Initialize i18n
 
 import LanguageSwitcher from "@/components/buttons/languageSwitcher";
 import useHomeTransition from "@/lib/hooks/useHomeTransition";
-import translationEN from "../../../public/locales/en/translation.json";
-import translationRU from "../../../public/locales/ru/translation.json";
 import shar from "@/assets/design/mobile/Vector.svg";
 import NavLink from "@/components/routing/NavLink";
 import logo from "@/assets/design/logo.svg";
 import Image from "next/image";
-import i18n from "i18next";
-
-const resources = {
-  en: {
-    translation: translationEN,
-  },
-  ru: {
-    translation: translationRU,
-  },
-};
-
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "en",
-  fallbackLng: "en",
-  interpolation: {
-    escapeValue: false,
-  },
-});
-
-// Устанавливаем cookie при инициализации
-if (typeof document !== "undefined") {
-  const existingLanguage = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith("language="))
-    ?.split("=")[1];
-
-  if (
-    existingLanguage &&
-    (existingLanguage === "en" || existingLanguage === "ru")
-  ) {
-    i18n.changeLanguage(existingLanguage);
-  } else {
-    // Устанавливаем cookie по умолчанию
-    document.cookie = `language=en; path=/; max-age=31536000`;
-  }
-}
 
 function Header() {
   const path = usePathname();

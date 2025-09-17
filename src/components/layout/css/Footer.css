@@ -74,6 +74,17 @@
     margin-left: -15px;
 }
 
+.contact-link-conatiner > .popup-initer{
+    text-decoration: none;
+    color: black;
+    font-family: var(--font-jost);
+    font-size: 20px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap:24px;
+}
+
 @media  screen and (max-width:480px) {
     .mobile-footer{
         width: calc(100% - 40px);
@@ -136,5 +147,24 @@
         padding-top: 10px;
         gap:40px;
         padding-bottom: 0;
+    }
+
+    .contact-link-conatiner{
+        position: relative;
+        right: 20px;
+        bottom: 15px;
+    }
+    .contact-link-conatiner > .popup-initer{
+        text-decoration: none;
+        color: black;
+        font-family: var(--font-jost);
+        font-size: 20px;
+        font-weight: normal;
+        display: flex;
+        align-items: center;
+        gap:20px;
+    }
+    .contact-icon-wrapper  > img{
+        width: 30px;
     }
 }

@@ -10,13 +10,12 @@ import {
 import { useTranslation } from "react-i18next";
 import "@/lib/i18n"; // Initialize i18n
 import { useMask } from "@react-input/mask";
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Div } from "@/lib/types/types";
 
 import contactIcon from "@/assets/design/Arrow 47.svg";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
-import NavLink from "@/components/routing/NavLink";
 import Image from "next/image";
 
 function Popup() {
@@ -39,7 +38,7 @@ function Popup() {
       e.target.className === "popup-wrapper popup-show"
     ) {
       const wrapper: Div = document.querySelector(".popup-wrapper");
-      wrapper && wrapper.classList.remove("popup-show");
+      if (wrapper) wrapper.classList.remove("popup-show");
     }
   };
 
@@ -76,7 +75,7 @@ function Popup() {
     return valid;
   };
 
-  const sendMail = (messageParams: any) => {
+  const sendMail = (messageParams: Record<string, unknown> | undefined) => {
     emailjs
       .send(emailJSserviceID, emailJStemplateID, messageParams, {
         publicKey: emailJSpublicKey,
@@ -96,7 +95,7 @@ function Popup() {
 
   const closeForm = () => {
     const wrapper = document.querySelector(".popup-wrapper");
-    wrapper && wrapper.classList.remove("popup-show");
+    if (wrapper) wrapper.classList.remove("popup-show");
   };
 
   return (
@@ -170,7 +169,6 @@ export const PopupInitBtn = () => {
       <span>{t("contact-us")}</span>
       <div className="contact-icon-wrapper">
         <Image src={contactIcon} width={19} height={19} alt="" />
-        {/* <img src={contactIcon} alt="" /> */}
       </div>
     </div>
   );

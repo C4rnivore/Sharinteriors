@@ -1,61 +1,61 @@
-'use client'
+"use client";
 
 import { useRouter, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Div } from "../types/types";
 
-const useHomeTransition = (animationDelay:number) => {
-  const router = useRouter()
-  const pathname = usePathname()
-  const [homePage, setHomePage] = useState<Div>(null)
-  const [homeTitle, setHomeTitle] = useState<Div>(null)
-  const [onHome, setOnHome] = useState<boolean>(true)
+const useHomeTransition = (animationDelay: number) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [homePage, setHomePage] = useState<Div>(null);
+  const [homeTitle, setHomeTitle] = useState<Div>(null);
+  const [onHome, setOnHome] = useState<boolean>(true);
 
   useEffect(() => {
-    setOnHome(pathname === '/')
-  }, [pathname])
+    setOnHome(pathname === "/");
+  }, [pathname]);
 
   useEffect(() => {
-    const home:Div = document.querySelector('.home-content')
-    const title:Div = document.querySelector('.home-logo-container')
+    const home: Div = document.querySelector(".home-content");
+    const title: Div = document.querySelector(".home-logo-container");
 
-    setHomePage(home)
-    setHomeTitle(title)
-  }, [])
+    setHomePage(home);
+    setHomeTitle(title);
+  }, []);
 
   const setHomeExpanded = () => {
-    homePage?.classList.add('expanded')
-    homeTitle?.classList.add('title-home-expanded')
-  }
+    homePage?.classList.add("expanded");
+    homeTitle?.classList.add("title-home-expanded");
+  };
 
   const transitionNavigate = (target: string) => {
     if (!onHome) {
-      router.push(target)
-      return
+      router.push(target);
+      return;
     }
 
-    setHomeExpanded()
+    setHomeExpanded();
     setTimeout(() => {
-      router.push(target)
-    }, animationDelay)
-  }
+      router.push(target);
+    }, animationDelay);
+  };
 
-  const handleAbout = (e:Event) => {
-    e.preventDefault()
-    transitionNavigate('/about')
-  }
+  const handleAbout: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+    transitionNavigate("/about");
+  };
 
-  const handleProjects = (e:Event) => {
-    e.preventDefault()
-    transitionNavigate('/projects')
-  }
+  const handleProjects: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+    transitionNavigate("/projects");
+  };
 
-  const handleContacts = (e:Event) => {
-    e.preventDefault()
-    transitionNavigate('/contacts')
-  }
+  const handleContacts: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+    e.preventDefault();
+    transitionNavigate("/contacts");
+  };
 
-  return { handleAbout, handleProjects, handleContacts, setHomeExpanded }
-}
+  return { handleAbout, handleProjects, handleContacts, setHomeExpanded };
+};
 
-export default useHomeTransition
+export default useHomeTransition;

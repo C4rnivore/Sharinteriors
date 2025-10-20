@@ -87,28 +87,28 @@ function Header() {
           </button>
           <nav className="header-nav">
             <NavLink basicClassName={"header-nav-a"} href={"/"}>
-              {t("home")}
+              {`${t("home")} `}
             </NavLink>
             <NavLink
               basicClassName={"header-nav-a"}
               onClick={handleAbout}
               href={"/about"}
             >
-              {t("about")}
+              {`${t("about")} `}
             </NavLink>
             <NavLink
               basicClassName={"header-nav-a"}
               onClick={handleProjects}
               href={"/projects"}
             >
-              {t("projects")}
+              {`${t("projects")} `}
             </NavLink>
             <NavLink
               basicClassName={"header-nav-a"}
               onClick={handleContacts}
               href={"/contacts"}
             >
-              {t("contacts")}
+              {`${t("contacts")} `}
             </NavLink>
           </nav>
 
@@ -128,22 +128,22 @@ function Header() {
               <ul className="mobile-menu-nav">
                 <li>
                   <NavLink href="/" onClick={handleMobileNavClick}>
-                    {t("home")}
+                    {`${t("home")} `}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink href="/about" onClick={handleMobileNavClick}>
-                    {t("about")}
+                    {`${t("about")} `}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink href="/projects" onClick={handleMobileNavClick}>
-                    {t("projects")}
+                    {`${t("projects")} `}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink href="/contacts" onClick={handleMobileNavClick}>
-                    {t("contacts")}
+                    {`${t("contacts")} `}
                   </NavLink>
                 </li>
                 <li>

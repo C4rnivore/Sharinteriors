@@ -7,13 +7,14 @@ import all from "@/assets/404/all.svg";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/header";
-
-// export const metadata = {
-//   title: "Page not found",
-// };
+import { useEffect } from "react";
 
 function NotFound() {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = "Page not found";
+  }, [t]);
 
   return (
     <>

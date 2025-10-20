@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import "./css/HomeGallery.css";
@@ -7,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import useMaxWidth from "@/lib/hooks/useMobile";
 import AliceCarousel from "react-alice-carousel";
-import Image from "next/image";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { projectsData } from "@/app/appData";
 
@@ -25,14 +25,12 @@ function HomeGallery(props: { extraPadding: boolean }) {
   const MobileGalleryImage = (src: string, path: string, localeKey: string) => {
     return (
       <div className="mobile-gallery-img">
-        <Image
-          fill
+        <img
           src={src}
           className="mobile-gallery-img"
           alt=""
           onClick={() => router?.push(path)}
         />
-        {/* <img src={image.src} className='mobile-gallery-img' alt="" onClick={() => router?.push(path)}/> */}
         <span className="mobile-gallery-span">{t(localeKey)}</span>
       </div>
     );

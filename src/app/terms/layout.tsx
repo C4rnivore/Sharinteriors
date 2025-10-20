@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import Header from "@/components/layout/header";
 
 export const metadata = {
-  title: "Page not found",
+  title: "Terms and conditions",
 };
 
 export default function PageLayout({ children }: { children: ReactNode }) {
